@@ -15,8 +15,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" })
 
 export const metadata: Metadata = {
-  title: "SABS - ONLINE STORE",
-  description: "Your trusted source for GADGETS AND COSMETICS.",
+  title: "HOMELY FOODS",
+  description: "Your trusted source for HOMELY MEALS.",
     generator: 'Shah'
 }
 

@@ -48,6 +48,9 @@ export async function POST(request: Request) {
       sku,
     } = body
 
+    // Ensure new_until_date is null if empty string or falsy
+    const safeNewUntilDate = new_until_date ? new_until_date : null;
+
     const [product] = await sql`
       INSERT INTO products (
         name, description, price, image_url, category_id,
@@ -56,31 +59,10 @@ export async function POST(request: Request) {
         storage_capacity, color, stock_quantity, sku
       ) VALUES (
         ${name}, ${description}, ${price}, ${image_url}, ${category_id},
-        ${is_available}, ${is_featured}, ${is_new}, ${new_until_date}, ${features}, ${specifications_text},
+        ${is_available}, ${is_featured}, ${is_new}, ${safeNewUntilDate}, ${features}, ${specifications_text},
         ${warranty_months}, ${brand}, ${model}, ${condition_type}, ${warranty_period},
         ${storage_capacity}, ${color}, ${stock_quantity}, ${sku}
       )
-      ON CONFLICT (sku) DO UPDATE SET
-        name = EXCLUDED.name,
-        description = EXCLUDED.description,
-        price = EXCLUDED.price,
-        image_url = EXCLUDED.image_url,
-        category_id = EXCLUDED.category_id,
-        is_available = EXCLUDED.is_available,
-        is_featured = EXCLUDED.is_featured,
-        is_new = EXCLUDED.is_new,
-        new_until_date = EXCLUDED.new_until_date,
-        features = EXCLUDED.features,
-        specifications_text = EXCLUDED.specifications_text,
-        warranty_months = EXCLUDED.warranty_months,
-        brand = EXCLUDED.brand,
-        model = EXCLUDED.model,
-        condition_type = EXCLUDED.condition_type,
-        warranty_period = EXCLUDED.warranty_period,
-        storage_capacity = EXCLUDED.storage_capacity,
-        color = EXCLUDED.color,
-        stock_quantity = EXCLUDED.stock_quantity,
-        updated_at = CURRENT_TIMESTAMP
       RETURNING *;
     `
 

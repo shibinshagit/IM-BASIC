@@ -33,7 +33,7 @@ interface SettingsContextType {
 }
 
 const defaultSettings: Settings = {
-  restaurant_name: "SABS",
+  restaurant_name: "HOMELY FOODS",
   restaurant_logo: "",
   currency_code: "USD",
   currency_symbol: "$",
@@ -44,7 +44,7 @@ const defaultSettings: Settings = {
   postal_code: "10001",
   country: "United States",
   phone: "+1 (555) 123-4567",
-  email: "info@lumiere-restaurant.com",
+  email: "info@homely-restaurant.com",
   website: "https://lumiere-restaurant.com",
   opening_hours:
     '{"monday": "5:00 PM - 10:00 PM", "tuesday": "5:00 PM - 10:00 PM", "wednesday": "5:00 PM - 10:00 PM", "thursday": "5:00 PM - 10:00 PM", "friday": "5:00 PM - 11:00 PM", "saturday": "5:00 PM - 11:00 PM", "sunday": "4:00 PM - 9:00 PM"}',

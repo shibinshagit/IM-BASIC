@@ -71,8 +71,8 @@ export default function FeaturedMenu() {
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-4">Featured Products</h2>
-          <p className="text-gray-600 text-lg mb-6">Discover our premium cosmetics collection</p>
+          <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-4">Featured Items</h2>
+          <p className="text-gray-600 text-lg mb-6">Explore our delicious range of homely, heartwarming meals</p>
           <div className="w-24 h-1 bg-amber-500 mx-auto"></div>
         </div>
 

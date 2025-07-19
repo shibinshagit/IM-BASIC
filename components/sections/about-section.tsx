@@ -28,7 +28,7 @@ export default function AboutSection() {
       const response = await fetch("/api/about")
       if (response.ok) {
         const data = await response.json()
-        setAboutContent(data[0] || null)
+        setAboutContent(data || null) 
       }
     } catch (error) {
       console.error("Failed to fetch about content:", error)
@@ -39,21 +39,21 @@ export default function AboutSection() {
 
   // Default content fallback
   const defaultContent = {
-    title: "A Legacy of Beauty and Confidence",
-    subtitle: "Where Tradition Inspires Radiance",
-    description: `Founded by beauty enthusiasts and skincare experts, Lumière blends time-honored rituals with cutting-edge innovation to bring out your natural glow. Every product is thoughtfully curated, every formula crafted with care—because your skin deserves nothing but the best.
-
-Step into a world of elegance and self-care, where quality, experience, and empowerment come together to redefine your beauty journey.`,
-    image_url: "https://dn4eb89m1y3v5dwa.public.blob.vercel-storage.com/1752509868221-IMG_0428.jpeg",
-    button_text: "BUY NOW!",
+    title: "A Taste of Home, Made with Love",
+    subtitle: "Where Every Meal Tells a Story",
+    description: `Founded by food lovers and home cooks, our kitchen brings the warmth of tradition to your table. We serve hearty, homemade meals crafted with fresh ingredients, cherished recipes, and a touch of love—just like how mom makes it.
+  
+  Step into a cozy space where comfort food meets heartfelt hospitality, and every bite brings you closer to home.`,
+    image_url: "logo.png",
+    button_text: "VIEW MENU",
     button_link: "/menu",
-  }
+  }  
 
   const content = aboutContent || defaultContent
 
   if (loading) {
     return (
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20 bg-white overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <div className="animate-pulse">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -76,7 +76,7 @@ Step into a world of elegance and self-care, where quality, experience, and empo
   }
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-white overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">

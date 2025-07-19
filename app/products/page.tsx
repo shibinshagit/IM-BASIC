@@ -226,7 +226,7 @@ export default function ProductsPage() {
                       disabled={!item.is_available}
                     >
                       <Plus className="w-4 h-4 mr-1" />
-                      {item.is_available ? "Add to Cart" : "Unavailable"}
+                      {item.is_available ? "Add" : "Unavailable"}
                     </Button>
                   </div>
                 </CardContent>
@@ -242,7 +242,7 @@ export default function ProductsPage() {
         )}
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

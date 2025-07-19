@@ -28,7 +28,7 @@ const navigation = [
   { name: "Orders", href: "/orders" },
   { name: "Reviews", href: "/#testimonials", scroll: true },
   { name: "About", href: "/#about", scroll: true },
-  { name: "Contact", href: "/#contact", scroll: true },
+  { name: "Contact", href: "/contact" },
 ]
 
 export default function Navbar() {
@@ -44,13 +44,14 @@ export default function Navbar() {
   // Shop theming
   const shopTheme = shop === "A"
     ? {
-        bg: isScrolled
-          ? "bg-gradient-to-r from-yellow-200/90 via-orange-200/90 to-amber-300/90 shadow-gold"
-          : "bg-gradient-to-r from-yellow-100/90 via-orange-100/90 to-amber-200/90",
-        accent: "text-yellow-600",
-        after: "Beauty",
-        afterClass: "bg-gradient-to-r from-yellow-400 via-orange-400 to-amber-500 bg-clip-text text-transparent animate-shop-swap",
-      }
+      bg: isScrolled
+        ? "bg-gradient-to-r from-yellow-500/90 via-red-800/90 to-black/90 shadow-md shadow-yellow-700/40"
+        : "bg-gradient-to-r from-yellow-400/90 via-red-700/90 to-black/90",
+      accent: "text-yellow-300",
+      after: "Food",
+      afterClass: "bg-gradient-to-r from-yellow-400 via-red-600 to-black bg-clip-text text-transparent animate-shop-swap",
+    }
+    
     : {
         bg: isScrolled
           ? "bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-700/95 shadow-platinum"
@@ -159,11 +160,11 @@ export default function Navbar() {
                 {settings.restaurant_name}
               </span>
               {/* Animated shop type */}
-              <span className={`ml-2 text-lg font-extrabold tracking-tight transition-all duration-500 ${shopTheme.afterClass}`}
+              {/* <span className={`ml-2 text-lg font-extrabold tracking-tight transition-all duration-500 ${shopTheme.afterClass}`}
                 key={shopTheme.after}
               >
                 <span className="inline-block animate-shop-fadein">{shopTheme.after}</span>
-              </span>
+              </span> */}
             </Link>
 
             {/* Desktop Navigation */}
@@ -236,7 +237,18 @@ export default function Navbar() {
             </div>
 
             {/* Mobile menu button - hidden when using bottom tabs */}
-            <div className="lg:hidden">
+            <div className="lg:hidden flex items-center space-x-2">
+              {/* Cart button always visible on mobile */}
+              <Link href="/order" className="relative">
+                <Button variant="ghost" size="sm" className="text-white hover:text-amber-400">
+                  <ShoppingBag className="w-5 h-5" />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-amber-500 text-black text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                      {cartCount}
+                    </span>
+                  )}
+                </Button>
+              </Link>
               <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)} className="text-white">
                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </Button>
@@ -262,16 +274,6 @@ export default function Navbar() {
                   </Link>
                 ))}
                 <div className="flex items-center space-x-4 px-3 py-2">
-                  <Link href="/order" className="relative">
-                    <Button variant="ghost" size="sm" className="text-white hover:text-amber-400">
-                      <ShoppingBag className="w-5 h-5" />
-                      {cartCount > 0 && (
-                        <span className="absolute -top-2 -right-2 bg-amber-500 text-black text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                          {cartCount}
-                        </span>
-                      )}
-                    </Button>
-                  </Link>
                   {isAuthenticated ? (
                     <Button
                       variant="ghost"

@@ -17,10 +17,16 @@ export default function CategoriesStories() {
     dispatch(fetchCategories())
   }, [dispatch])
 
-  // Sort categories by sort_order
-  const sortedCategories = [...categories].sort((a, b) => {
-    return (a.sort_order || 0) - (b.sort_order || 0)
-  })
+  // Sort categories by sort_order, but put 'Today's Special' first if it exists
+  let sortedCategories = [...categories]
+  const todaysSpecialIndex = sortedCategories.findIndex(
+    (cat) => cat.name && cat.name.toLowerCase().includes("today's special")
+  )
+  let todaysSpecial = null
+  if (todaysSpecialIndex !== -1) {
+    todaysSpecial = sortedCategories.splice(todaysSpecialIndex, 1)[0]
+    sortedCategories = [todaysSpecial, ...sortedCategories]
+  }
 
   if (loading) {
     return (
@@ -45,12 +51,13 @@ export default function CategoriesStories() {
         <div className="flex space-x-4 overflow-x-auto scrollbar-hide pb-2">
           {sortedCategories.map((category, index) => {
             const isActive = activeCategory === category.id
+            const isTodaysSpecial = category.name && category.name.toLowerCase().includes("today's special")
 
             return (
               <Link
                 key={category.id}
                 href={`/products?category=${category.id}`}
-                className="flex-shrink-0 text-center group"
+                className={`flex-shrink-0 text-center group ${isTodaysSpecial ? "relative" : ""}`}
                 onMouseEnter={() => setActiveCategory(category.id)}
                 onMouseLeave={() => setActiveCategory(null)}
               >
@@ -58,7 +65,9 @@ export default function CategoriesStories() {
                   {/* Story Ring */}
                   <div
                     className={`w-16 h-16 rounded-full p-0.5 transition-all duration-300 ${
-                      isActive
+                      isTodaysSpecial
+                        ? "bg-gradient-to-tr from-yellow-400 via-amber-400 to-orange-500 shadow-lg ring-2 ring-amber-400 animate-pulse"
+                        : isActive
                         ? "bg-gradient-to-tr from-gray-400 to-gray-600"
                         : "bg-gray-200"
                     }`}
@@ -74,6 +83,11 @@ export default function CategoriesStories() {
                           fill
                           className="object-cover transition-transform duration-300 group-hover:scale-110"
                         />
+                        {isTodaysSpecial && (
+                          <span className="absolute -top-2 -right-2 bg-amber-400 rounded-full p-1 shadow-lg animate-bounce">
+                            <Sparkles className="w-4 h-4 text-yellow-700" />
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -81,11 +95,18 @@ export default function CategoriesStories() {
 
                 {/* Category Name */}
                 <p
-                  className={`text-xs mt-2 font-medium transition-colors duration-200 ${
-                    isActive ? "text-gray-900" : "text-gray-600"
+                  className={`text-xs mt-2 font-bold transition-colors duration-200 ${
+                    isTodaysSpecial
+                      ? "text-amber-600 drop-shadow-sm"
+                      : isActive
+                      ? "text-gray-900"
+                      : "text-gray-600"
                   }`}
                 >
                   {category.name.length > 10 ? `${category.name.substring(0, 10)}...` : category.name}
+                  {isTodaysSpecial && (
+                    <span className="ml-1 text-amber-500 font-extrabold">★</span>
+                  )}
                 </p>
               </Link>
             )

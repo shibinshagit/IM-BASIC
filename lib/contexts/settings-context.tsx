@@ -33,8 +33,8 @@ interface SettingsContextType {
 }
 
 const defaultSettings: Settings = {
-  restaurant_name: "HOMELY FOODS",
-  restaurant_logo: "",
+  restaurant_name: "ITHISAL MOBILES",
+  restaurant_logo: "logo.png",
   currency_code: "USD",
   currency_symbol: "$",
   address_line1: "123 Gourmet Street",
@@ -44,8 +44,8 @@ const defaultSettings: Settings = {
   postal_code: "10001",
   country: "United States",
   phone: "+1 (555) 123-4567",
-  email: "info@homely-restaurant.com",
-  website: "https://lumiere-restaurant.com",
+  email: "info@ITHISALMOBILES.com",
+  website: "https://ITHISAL MOBILES.com",
   opening_hours:
     '{"monday": "5:00 PM - 10:00 PM", "tuesday": "5:00 PM - 10:00 PM", "wednesday": "5:00 PM - 10:00 PM", "thursday": "5:00 PM - 10:00 PM", "friday": "5:00 PM - 11:00 PM", "saturday": "5:00 PM - 11:00 PM", "sunday": "4:00 PM - 9:00 PM"}',
   social_facebook: "",

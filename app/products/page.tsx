@@ -218,7 +218,7 @@ export default function ProductsPage() {
                   <div className="flex items-end justify-between mt-2">
                     <div>
                       <span className={`text-3xl font-extrabold ${theme.price} drop-shadow-sm`}>{formatPrice(item.price)}</span>
-                      {item.warranty_months && <p className="text-xs text-gray-400 mt-1">{item.warranty_months} months Expiry</p>}
+                      {item.warranty_months && <p className="text-xs text-gray-400 mt-1">{item.warranty_months} months warranty</p>}
                     </div>
                     <Button
                       onClick={() => handleAddToCart(item)}

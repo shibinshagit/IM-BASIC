@@ -20,7 +20,7 @@ export default function CategoriesStories() {
   // Sort categories by sort_order, but put 'Today's Special' first if it exists
   let sortedCategories = [...categories]
   const todaysSpecialIndex = sortedCategories.findIndex(
-    (cat) => cat.name && cat.name.toLowerCase().includes("today's special")
+    (cat) => cat.name && cat.name.toLowerCase().includes("new arrivals")
   )
   let todaysSpecial = null
   if (todaysSpecialIndex !== -1) {
@@ -51,7 +51,7 @@ export default function CategoriesStories() {
         <div className="flex space-x-4 overflow-x-auto scrollbar-hide pb-2">
           {sortedCategories.map((category, index) => {
             const isActive = activeCategory === category.id
-            const isTodaysSpecial = category.name && category.name.toLowerCase().includes("today's special")
+            const isTodaysSpecial = category.name && category.name.toLowerCase().includes("new arrivals")
 
             return (
               <Link

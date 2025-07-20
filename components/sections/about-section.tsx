@@ -39,15 +39,16 @@ export default function AboutSection() {
 
   // Default content fallback
   const defaultContent = {
-    title: "A Taste of Home, Made with Love",
-    subtitle: "Where Every Meal Tells a Story",
-    description: `Founded by food lovers and home cooks, our kitchen brings the warmth of tradition to your table. We serve hearty, homemade meals crafted with fresh ingredients, cherished recipes, and a touch of love—just like how mom makes it.
+    title: "Smart Tech, Smarter Prices",
+    subtitle: "Reliable Gadgets, Renewed for You",
+    description: `We specialize in high-quality used mobiles and gadgets that fit your lifestyle and your budget. Each device is carefully tested, certified, and backed with warranty—so you can shop with confidence.
   
-  Step into a cozy space where comfort food meets heartfelt hospitality, and every bite brings you closer to home.`,
+    Whether you're upgrading, replacing, or exploring smart tech for the first time, we’ve got affordable options for every need.`,
     image_url: "logo.png",
-    button_text: "VIEW MENU",
-    button_link: "/menu",
-  }  
+    button_text: "BROWSE PRODUCTS",
+    button_link: "/products",
+  }
+   
 
   const content = aboutContent || defaultContent
 

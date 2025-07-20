@@ -46,7 +46,7 @@ export default function ContactPage() {
                   </div>
                 )}
                 <h1 className="font-playfair text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-amber-500 bg-clip-text text-transparent animate-shop-swap text-center">{settings.restaurant_name}</h1>
-                <p className="text-gray-600 text-lg text-center max-w-xs animate-fade-in">Step into a world of warmth and comfort, where quality ingredients, time-tested recipes, and heartfelt hospitality come together to redefine your dining experience.</p>
+                <p className="text-gray-600 text-lg text-center max-w-xs animate-fade-in">Step into a world of smart savings and trusted tech, where quality devices, expert refurbishment, and honest service come together to redefine your gadget shopping experience.</p>
               </div>
               <div className="flex space-x-6 mt-4">
                 <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors text-3xl"><Facebook /></a>
@@ -74,7 +74,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-amber-400 flex-shrink-0" />
-                    <p className="text-gray-700">homelymeals@gmail.com</p>
+                    <p className="text-gray-700">ithisalmobiles@gmail.com</p>
                   </div>
                 </div>
                 {/* Opening Hours */}

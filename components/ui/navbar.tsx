@@ -43,14 +43,15 @@ export default function Navbar() {
 
   // Shop theming
   const shopTheme = shop === "A"
-    ? {
+    ?{
       bg: isScrolled
-        ? "bg-gradient-to-r from-yellow-500/90 via-red-800/90 to-black/90 shadow-md shadow-yellow-700/40"
-        : "bg-gradient-to-r from-yellow-400/90 via-red-700/90 to-black/90",
-      accent: "text-yellow-300",
-      after: "Food",
-      afterClass: "bg-gradient-to-r from-yellow-400 via-red-600 to-black bg-clip-text text-transparent animate-shop-swap",
-    }
+        ? "bg-gradient-to-r from-[#0f0f0f]/90 via-[#1a1a1a]/90 to-black/90 shadow-lg shadow-[#00ffea]/40"
+        : "bg-gradient-to-r from-[#1a1a1a]/90 via-[#111111]/90 to-black/90",
+      accent: "text-[#00ffea]", // cyber blue-green
+      after: "GameZone",
+      afterClass:
+        "bg-gradient-to-r from-[#ff00cc] via-[#3333ff] to-[#00ffee] bg-clip-text text-transparent animate-pulse",
+    }    
     
     : {
         bg: isScrolled
@@ -156,9 +157,13 @@ export default function Navbar() {
                   <span className="text-black font-bold text-sm">{settings.restaurant_name.charAt(0)}</span>
                 </div>
               )}
-              <span className="font-playfair text-xl font-bold text-white transition-colors duration-500">
-                {settings.restaurant_name}
-              </span>
+             <span className="font-playfair text-xl font-bold text-transparent bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FFD700] bg-clip-text 
+  drop-shadow-[2px_2px_0_rgba(0,0,0,0.5)] 
+  shadow-yellow-100 
+  transition-all duration-500">
+  {settings.restaurant_name}
+</span>
+
               {/* Animated shop type */}
               {/* <span className={`ml-2 text-lg font-extrabold tracking-tight transition-all duration-500 ${shopTheme.afterClass}`}
                 key={shopTheme.after}

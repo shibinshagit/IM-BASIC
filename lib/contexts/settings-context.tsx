@@ -33,8 +33,8 @@ interface SettingsContextType {
 }
 
 const defaultSettings: Settings = {
-  restaurant_name: "ITHISAL MOBILES",
-  restaurant_logo: "logo.png",
+  restaurant_name: "MOTOCLUB KOTTACKAL",
+  restaurant_logo: "logo.jpg",
   currency_code: "USD",
   currency_symbol: "$",
   address_line1: "123 Gourmet Street",

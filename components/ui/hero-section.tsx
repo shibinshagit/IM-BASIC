@@ -60,7 +60,7 @@ export default function HeroSection() {
             <span className={`absolute inline-flex h-40 w-40 rounded-full ${shop === "A" ? "bg-gradient-to-tr from-yellow-400 via-yellow-500 to-yellow-700" : "bg-gradient-to-tr from-gray-300 via-gray-400 to-gray-500"} opacity-80 blur-2xl animate-pulse`} />
             <span className={`absolute inline-flex h-44 w-44 rounded-full border-4 ${shop === "A" ? "border-yellow-400" : "border-gray-400"} opacity-60 animate-spin-slow`} />
             <Image
-              src="/logo.png"
+              src="/logo.jpg"
               alt="Logo"
               width={90}
               height={90}
